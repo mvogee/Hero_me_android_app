@@ -9,9 +9,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.matthewvogee.herome.Fragments.MainFragment;
+import com.matthewvogee.herome.Fragments.PickPowerFragment;
 import com.matthewvogee.herome.R;
 
-public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener,
+        PickPowerFragment.PickOnFragmentInteractionListener {
+
+    public enum powersAcquired{
+        ACCIDENT,
+        GENETICMUTATION,
+        BORNWITH
+    }
+    public enum powerType {
+        TURTLEPOWERS,
+        FLIGHT,
+        LIGHTNING,
+        WEBSLINGING,
+        LASERVISION,
+        SUPERSTRENGTH
+    }
+
+    static powerType type;
+    static powersAcquired acquired;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +46,28 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
         }
     }
 
+    public void setType(powerType type) {
+        this.type = type;
+    }
+    public void setAcquired(powersAcquired method) {
+        this.acquired = method;
+    }
     @Override
     public void onMainFragmentInteraction(Uri uri) {
 
     }
 
-    public void loadPickPowerActivity() {
+    @Override
+    public void onPickPowerFragmentInteraction(Uri uri) {
 
+    }
+
+    public void loadPickPowerFragment() {
+        PickPowerFragment pickPowerFragment = new PickPowerFragment();
+        this.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, pickPowerFragment).addToBackStack(null).commit();
+    }
+
+    public void loadBackstroyFragment() {
+        
     }
 }

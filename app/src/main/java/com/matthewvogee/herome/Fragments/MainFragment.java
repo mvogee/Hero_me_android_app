@@ -88,7 +88,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View view) {
                 MainActivity mainActivity = (MainActivity)getActivity();
-                mainActivity.loadPickPowerActivity();
+                mainActivity.loadPickPowerFragment();
             }
         });
 
@@ -102,18 +102,19 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         chooseBtn.setEnabled(true);
         chooseBtn.getBackground().setAlpha(255);
         int leftDrawable = 0;
+        MainActivity mainActivity = (MainActivity)getActivity();
 
-        // to stop the text shift when we set the button icon create an empty image that is the same
-        // size as the item_selected_btn.
-        accidentBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lightning_icon, 0, 0, 0);
-        geneticBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.atomic_icon, 0, 0, 0);
-        bornwithBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.rocket_icon, 0, 0, 0);
-
+        accidentBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lightning_icon, 0, R.drawable.emptyimage, 0);
+        geneticBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.atomic_icon, 0, R.drawable.emptyimage, 0);
+        bornwithBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.rocket_icon, 0, R.drawable.emptyimage, 0);
         if (btn == accidentBtn) {
+            mainActivity.setAcquired(MainActivity.powersAcquired.ACCIDENT);
             leftDrawable = R.drawable.lightning_icon;
         } else if (btn == geneticBtn) {
-           leftDrawable = R.drawable.atomic_icon;
+            mainActivity.setAcquired(MainActivity.powersAcquired.GENETICMUTATION);
+            leftDrawable = R.drawable.atomic_icon;
         } else if (btn == bornwithBtn) {
+            mainActivity.setAcquired(MainActivity.powersAcquired.BORNWITH);
             leftDrawable = R.drawable.rocket_icon;
         }
         btn.setCompoundDrawablesWithIntrinsicBounds(leftDrawable, 0, R.drawable.item_selected_btn, 0);

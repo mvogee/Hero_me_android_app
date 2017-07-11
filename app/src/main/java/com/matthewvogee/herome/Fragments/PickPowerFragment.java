@@ -7,18 +7,20 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.matthewvogee.herome.Activities.MainActivity;
 import com.matthewvogee.herome.R;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link PickPowerFragment.OnFragmentInteractionListener} interface
+ * {@link PickPowerFragment.PickOnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link PickPowerFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PickPowerFragment extends Fragment {
+public class PickPowerFragment extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -27,8 +29,15 @@ public class PickPowerFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Button turtlePowerButton;
+    private Button lightningButton;
+    private Button flightButton;
+    private Button websligningButton;
+    private Button laserVisionButton;
+    private Button superStrenghtButton;
+    private Button showBackstoryButton;
 
-    private OnFragmentInteractionListener mListener;
+    private PickOnFragmentInteractionListener mListener;
 
     public PickPowerFragment() {
         // Required empty public constructor
@@ -65,21 +74,80 @@ public class PickPowerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pick_power, container, false);
+        View view = inflater.inflate(R.layout.fragment_pick_power, container, false);
+        turtlePowerButton = view.findViewById(R.id.button_turtlePowers);
+        lightningButton = view.findViewById(R.id.button_lightning);
+        flightButton = view.findViewById(R.id.button_flight);
+        websligningButton = view.findViewById(R.id.button_webSlinging);
+        laserVisionButton = view.findViewById(R.id.button_laserVision);
+        superStrenghtButton = view.findViewById(R.id.button_superStrength);
+        showBackstoryButton = view.findViewById(R.id.button_showBackstory);
+
+        showBackstoryButton.getBackground().setAlpha(128);
+        showBackstoryButton.setEnabled(false);
+        turtlePowerButton.setOnClickListener(this);
+        lightningButton.setOnClickListener(this);
+        flightButton.setOnClickListener(this);
+        websligningButton.setOnClickListener(this);
+        laserVisionButton.setOnClickListener(this);
+        superStrenghtButton.setOnClickListener(this);
+        showBackstoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // load the next fragment
+            }
+        });
+        return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        Button btn = (Button)view;
+        int leftDrawable = 0;
+        MainActivity mainActivity = (MainActivity)getActivity();
+
+        showBackstoryButton.setEnabled(true);
+        showBackstoryButton.getBackground().setAlpha(255);
+        turtlePowerButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.turtlepower_icon, 0, R.drawable.emptyimage, 0);
+        lightningButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.thorshammer_icon, 0, R.drawable.emptyimage,0 );
+        flightButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.supermancrest_icon, 0, R.drawable.emptyimage, 0);
+        websligningButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.spiderweb_icon, 0, R.drawable.emptyimage, 0);
+        laserVisionButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.laservision_icon, 0, R.drawable.emptyimage, 0);
+        superStrenghtButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.superstrength_icon, 0, R.drawable.emptyimage, 0);
+        if (btn == turtlePowerButton) {
+            mainActivity.setType(MainActivity.powerType.TURTLEPOWERS);
+            leftDrawable = R.drawable.turtlepower_icon;
+        } else if (btn == lightningButton){
+            mainActivity.setType(MainActivity.powerType.LIGHTNING);
+            leftDrawable = R.drawable.thorshammer_icon;
+        } else if (btn == flightButton) {
+            mainActivity.setType(MainActivity.powerType.FLIGHT);
+            leftDrawable = R.drawable.supermancrest_icon;
+        } else if (btn == websligningButton) {
+            mainActivity.setType(MainActivity.powerType.WEBSLINGING);
+            leftDrawable = R.drawable.spiderweb_icon;
+        } else if (btn == laserVisionButton) {
+            mainActivity.setType(MainActivity.powerType.LASERVISION);
+            leftDrawable = R.drawable.laservision_icon;
+        } else if (btn == superStrenghtButton) {
+            mainActivity.setType(MainActivity.powerType.SUPERSTRENGTH);
+            leftDrawable = R.drawable.superstrength_icon;
+        }
+        btn.setCompoundDrawablesWithIntrinsicBounds(leftDrawable, 0, R.drawable.item_selected_btn, 0);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+            mListener.onPickPowerFragmentInteraction(uri);
         }
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof PickOnFragmentInteractionListener) {
+            mListener = (PickOnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -102,8 +170,8 @@ public class PickPowerFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnFragmentInteractionListener {
+    public interface PickOnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void onPickPowerFragmentInteraction(Uri uri);
     }
 }

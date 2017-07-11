@@ -8,6 +8,8 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,22 +18,18 @@
         android:orientation="vertical"
         android:padding="0dp">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/actionBar"
+        <TextView
+            android:id="@+id/hdygyp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#253748"
-            android:minHeight="?attr/actionBarSize"
-            android:weightSum="1">
-
-            <ImageView
-                android:id="@+id/actionBarImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
-                android:layout_weight="1.04"
-                android:src="@drawable/topbannerbar" />
-        </android.support.v7.widget.Toolbar>
+            android:gravity="center_horizontal"
+            android:paddingBottom="2dp"
+            android:paddingTop="8dp"
+            android:text="How did you get your powers?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorSuperYellow"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -46,10 +44,11 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/hero_button"
             android:drawableLeft="@drawable/lightning_icon"
+            android:drawableRight="@drawable/emptyimage"
             android:paddingLeft="6dp"
             android:paddingRight="10dp"
             android:text="Came by Accident"
-            android:textColor="#fac740"
+            android:textColor="@color/colorSuperYellow"
             android:textSize="15sp" />
 
         <Button
@@ -59,10 +58,11 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/hero_button"
             android:drawableLeft="@drawable/atomic_icon"
+            android:drawableRight="@drawable/emptyimage"
             android:paddingLeft="6dp"
             android:paddingRight="10dp"
             android:text="Genetic Mutation"
-            android:textColor="#fac740"
+            android:textColor="@color/colorSuperYellow"
             android:textSize="15sp" />
 
         <Button
@@ -72,10 +72,11 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/hero_button"
             android:drawableLeft="@drawable/rocket_icon"
+            android:drawableRight="@drawable/emptyimage"
             android:paddingLeft="6dp"
             android:paddingRight="10dp"
             android:text="Born with them"
-            android:textColor="#fac740"
+            android:textColor="@color/colorSuperYellow"
             android:textSize="15sp" />
 
         <Button
@@ -84,7 +85,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/hero_solid_button"
-            android:backgroundTint="#fac740"
+            android:backgroundTint="@color/colorSuperYellow"
             android:paddingLeft="6dp"
             android:paddingRight="10dp"
             android:text="Choose Powers"
