@@ -2,7 +2,9 @@ package com.matthewvogee.herome.Fragments;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -85,7 +87,7 @@ public class BackStoryFragment extends Fragment {
 
         setPrimaryPower();
         setSecondaryPower();
-        setSuperHeroName();
+        setSuperHero();
         secondaryPowerBtn.setEnabled(false);
         backStroy.setText("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo" +
                 "ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient" +
@@ -196,11 +198,14 @@ public class BackStoryFragment extends Fragment {
         this.secondaryPowerBtn.setText(powerText);
     }
 
-    private void setSuperHeroName() {
+    private void setSuperHero() {
         String superHeroName = "";
+        String primaryPower = "";
+        int leftSideImage = 0;
         MainActivity mainActivity = (MainActivity) getActivity();
 
         if (mainActivity.getType() == MainActivity.powerType.FLIGHT) {
+            leftSideImage = R.drawable.supermancrest_icon;
             if (mainActivity.getAcquired() == MainActivity.powersAcquired.ACCIDENT) {
                 superHeroName = "JOE DOE";
             } else if (mainActivity.getAcquired() == MainActivity.powersAcquired.GENETICMUTATION) {
@@ -209,6 +214,7 @@ public class BackStoryFragment extends Fragment {
                 superHeroName = "SUPERMAN";
             }
         } else if (mainActivity.getType() == MainActivity.powerType.LASERVISION) {
+            leftSideImage = R.drawable.laservision_icon;
             if (mainActivity.getAcquired() == MainActivity.powersAcquired.ACCIDENT) {
                 superHeroName = "JOE BOE";
             } else if (mainActivity.getAcquired() == MainActivity.powersAcquired.GENETICMUTATION) {
@@ -218,13 +224,17 @@ public class BackStoryFragment extends Fragment {
             }
         } else if (mainActivity.getType() == MainActivity.powerType.LIGHTNING) {
             if (mainActivity.getAcquired() == MainActivity.powersAcquired.ACCIDENT) {
+                leftSideImage = R.drawable.lightning_icon;
                 superHeroName = "JOE WOE";
             } else if (mainActivity.getAcquired() == MainActivity.powersAcquired.GENETICMUTATION) {
+                leftSideImage = R.drawable.lightning_icon;
                 superHeroName = "STORM";
             } else if (mainActivity.getAcquired() == MainActivity.powersAcquired.BORNWITH) {
+                leftSideImage = R.drawable.thorshammer_icon;
                 superHeroName = "THOR";
             }
         } else if (mainActivity.getType() == MainActivity.powerType.TURTLEPOWERS) {
+            leftSideImage = R.drawable.turtlepower_icon;
             if (mainActivity.getAcquired() == MainActivity.powersAcquired.ACCIDENT) {
                 superHeroName = "NINJA TURTLE 1";
             } else if (mainActivity.getAcquired() == MainActivity.powersAcquired.GENETICMUTATION) {
@@ -233,6 +243,7 @@ public class BackStoryFragment extends Fragment {
                 superHeroName = "NINJA TURTLE 3";
             }
         } else if (mainActivity.getType() == MainActivity.powerType.WEBSLINGING) {
+            leftSideImage = R.drawable.spiderweb_icon;
             if (mainActivity.getAcquired() == MainActivity.powersAcquired.ACCIDENT) {
                 superHeroName = "SPODERMAN";
             } else if (mainActivity.getAcquired() == MainActivity.powersAcquired.GENETICMUTATION) {
@@ -241,13 +252,18 @@ public class BackStoryFragment extends Fragment {
                 superHeroName = "SPIDER PIG";
             }
         } else if (mainActivity.getType() == MainActivity.powerType.SUPERSTRENGTH) {
+            leftSideImage = R.drawable.superstrength_icon;
             if (mainActivity.getAcquired() == MainActivity.powersAcquired.ACCIDENT) {
                 superHeroName = "HULK";
             } else if (mainActivity.getAcquired() == MainActivity.powersAcquired.GENETICMUTATION) {
                 superHeroName = "CAPTAIN AMERICA";
             } else if (mainActivity.getAcquired() == MainActivity.powersAcquired.BORNWITH) {
+                leftSideImage = R.drawable.supermancrest_icon;
                 superHeroName = "SUPERMAN";
             }
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            this.superHeroIconImg.setImageDrawable(getResources().getDrawable(leftSideImage, getActivity().getTheme()));
         }
         this.superHeroName.setText(superHeroName);
     }
