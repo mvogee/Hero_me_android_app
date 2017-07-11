@@ -89,7 +89,7 @@
             android:paddingLeft="6dp"
             android:paddingRight="10dp"
             android:text="Choose Powers"
-            android:textColor="#10161D"
+            android:textColor="@color/colorSolidButtonText"
             android:textSize="18sp" />
     </LinearLayout>
 

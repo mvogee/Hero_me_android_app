@@ -120,7 +120,7 @@
             android:paddingRight="10dp"
             android:text="Show Backstory"
             android:textSize="15sp"
-            android:textColor="#10161D" />
+            android:textColor="@color/colorSolidButtonText" />
     </LinearLayout>
 
 </FrameLayout>
