@@ -1,4 +1,4 @@
-package com.matthewvogee.herome.Activities;
+package com.matthewvogee.herome.Fragments;
 
 import android.content.Context;
 import android.net.Uri;
@@ -13,7 +13,7 @@ import com.matthewvogee.herome.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link BackStoryFragment.OnFragmentInteractionListener} interface
+ * {@link BackStoryFragment.StoryOnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link BackStoryFragment#newInstance} factory method to
  * create an instance of this fragment.
@@ -28,7 +28,7 @@ public class BackStoryFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
+    private StoryOnFragmentInteractionListener mListener;
 
     public BackStoryFragment() {
         // Required empty public constructor
@@ -71,15 +71,15 @@ public class BackStoryFragment extends Fragment {
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+            mListener.onBackStoryFragmentInteraction(uri);
         }
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof StoryOnFragmentInteractionListener) {
+            mListener = (StoryOnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -102,8 +102,8 @@ public class BackStoryFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnFragmentInteractionListener {
+    public interface StoryOnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void onBackStoryFragmentInteraction(Uri uri);
     }
 }

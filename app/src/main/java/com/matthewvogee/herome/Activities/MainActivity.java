@@ -8,12 +8,13 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.matthewvogee.herome.Fragments.BackStoryFragment;
 import com.matthewvogee.herome.Fragments.MainFragment;
 import com.matthewvogee.herome.Fragments.PickPowerFragment;
 import com.matthewvogee.herome.R;
 
 public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener,
-        PickPowerFragment.PickOnFragmentInteractionListener {
+        PickPowerFragment.PickOnFragmentInteractionListener, BackStoryFragment.StoryOnFragmentInteractionListener {
 
     public enum powersAcquired{
         ACCIDENT,
@@ -62,12 +63,18 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
 
     }
 
+    @Override
+    public void onBackStoryFragmentInteraction(Uri uri) {
+
+    }
+
     public void loadPickPowerFragment() {
         PickPowerFragment pickPowerFragment = new PickPowerFragment();
         this.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, pickPowerFragment).addToBackStack(null).commit();
     }
 
-    public void loadBackstroyFragment() {
-        
+    public void loadBackstoryFragment() {
+        BackStoryFragment backStoryFragment = new BackStoryFragment();
+        this.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, backStoryFragment).addToBackStack(null).commit();
     }
 }

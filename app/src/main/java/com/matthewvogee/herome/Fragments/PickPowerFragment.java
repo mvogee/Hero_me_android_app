@@ -94,7 +94,8 @@ public class PickPowerFragment extends Fragment implements View.OnClickListener{
         showBackstoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // load the next fragment
+                MainActivity mainActivity = (MainActivity)getActivity();
+                mainActivity.loadBackstoryFragment();
             }
         });
         return view;
