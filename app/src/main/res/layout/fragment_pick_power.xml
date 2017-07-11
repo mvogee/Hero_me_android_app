@@ -105,7 +105,7 @@
             android:drawableRight="@drawable/emptyimage"
             android:paddingLeft="6dp"
             android:paddingRight="10dp"
-            android:text="Turtle Power"
+            android:text="Super Strength"
             android:textSize="15sp"
             android:textColor="@color/colorSuperYellow" />
 

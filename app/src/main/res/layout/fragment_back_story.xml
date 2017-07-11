@@ -51,7 +51,7 @@
             app:layout_constraintBottom_toTopOf="@+id/textView_storyText" />
 
         <ImageView
-            android:id="@+id/imageView_superherIcon"
+            android:id="@+id/imageView_superheroIcon"
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_marginTop="8dp"
@@ -64,6 +64,7 @@
             android:id="@+id/textView_storyText"
             android:layout_width="285dp"
             android:layout_height="wrap_content"
+            android:minHeight="170dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="0dp"
@@ -73,7 +74,7 @@
             android:textSize="12sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView_superherIcon" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView_superheroIcon" />
 
         <TextView
             android:id="@+id/textView_primaryPower"

@@ -53,6 +53,13 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
     public void setAcquired(powersAcquired method) {
         this.acquired = method;
     }
+    public powerType getType() {
+        return type;
+    }
+    public powersAcquired getAcquired() {
+        return acquired;
+    }
+
     @Override
     public void onMainFragmentInteraction(Uri uri) {
 
