@@ -80,8 +80,14 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
         this.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, pickPowerFragment).addToBackStack(null).commit();
     }
 
-    public void loadBackstoryFragment() {
+    public void loadBackStoryFragment() {
         BackStoryFragment backStoryFragment = new BackStoryFragment();
         this.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, backStoryFragment).addToBackStack(null).commit();
+    }
+    public void backToMainScreen() {
+        MainFragment mainFragment = new MainFragment();
+        // we know we are two fragments deep so pop twice to get back to the mian fragment.
+        this.getSupportFragmentManager().popBackStack();
+        this.getSupportFragmentManager().popBackStack();
     }
 }

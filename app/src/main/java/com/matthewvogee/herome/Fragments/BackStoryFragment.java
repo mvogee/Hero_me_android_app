@@ -88,7 +88,14 @@ public class BackStoryFragment extends Fragment {
         secondaryPowerBtn.setEnabled(false);
         superHeroName.setText("PLACEHOLDER");
         backStroy.setText("placeholder backstory for this unknown superhero");
-        // Inflate the layout for this fragment
+
+        startOverBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity mainActivity = (MainActivity)getActivity();
+                mainActivity.backToMainScreen();
+            }
+        });
         return view;
     }
 
