@@ -261,7 +261,7 @@ public class BackStoryFragment extends Fragment {
             }
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            this.superHeroIconImg.setImageDrawable(getResources().getDrawable(leftSideImage, getActivity().getTheme()));
+            this.superHeroIconImg.setImageDrawable(getResources().getDrawable(leftSideImage, getContext().getTheme()));
         }
         this.superHeroName.setText(superHeroName);
     }
