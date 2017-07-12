@@ -159,9 +159,7 @@ public class BackStoryFragment extends Fragment {
         } else if (mainActivity.getAcquired() == MainActivity.powersAcquired.GENETICMUTATION) {
             leftSideImage = R.drawable.turtlepower_icon;
             powerText = "Turtle Power";
-            // decide between the genetically mutated powers.
         } else if (mainActivity.getAcquired() == MainActivity.powersAcquired.BORNWITH) {
-            // decide between the born with powers.
             leftSideImage = R.drawable.supermancrest_icon;
             powerText = "Flight";
         }
@@ -245,7 +243,7 @@ public class BackStoryFragment extends Fragment {
         } else if (mainActivity.getType() == MainActivity.powerType.WEBSLINGING) {
             leftSideImage = R.drawable.spiderweb_icon;
             if (mainActivity.getAcquired() == MainActivity.powersAcquired.ACCIDENT) {
-                superHeroName = "SPODERMAN";
+                superHeroName = "SPOODERMAN";
             } else if (mainActivity.getAcquired() == MainActivity.powersAcquired.GENETICMUTATION) {
                 superHeroName = "SPIDER MAN";
             } else if (mainActivity.getAcquired() == MainActivity.powersAcquired.BORNWITH) {
