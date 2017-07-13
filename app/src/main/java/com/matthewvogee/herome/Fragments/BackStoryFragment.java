@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -89,13 +90,6 @@ public class BackStoryFragment extends Fragment {
         setSecondaryPower();
         setSuperHero();
         secondaryPowerBtn.setEnabled(false);
-        backStroy.setText("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo" +
-                "ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient" +
-                "montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu," +
-                "pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel," +
-                "aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a," +
-                "venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer" +
-                "tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend.");
 
         startOverBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -199,6 +193,7 @@ public class BackStoryFragment extends Fragment {
     private void setSuperHero() {
         String superHeroName = "";
         String primaryPower = "";
+        String backStory = getResources().getString(R.string.default_backstory);
         int leftSideImage = 0;
         MainActivity mainActivity = (MainActivity) getActivity();
 
@@ -210,6 +205,7 @@ public class BackStoryFragment extends Fragment {
                 superHeroName = "HUMANTORCH";
             } else if (mainActivity.getAcquired() == MainActivity.powersAcquired.BORNWITH) {
                 superHeroName = "SUPERMAN";
+                backStory = getResources().getString(R.string.superman_story);
             }
         } else if (mainActivity.getType() == MainActivity.powerType.LASERVISION) {
             leftSideImage = R.drawable.laservision_icon;
@@ -258,11 +254,13 @@ public class BackStoryFragment extends Fragment {
             } else if (mainActivity.getAcquired() == MainActivity.powersAcquired.BORNWITH) {
                 leftSideImage = R.drawable.supermancrest_icon;
                 superHeroName = "SUPERMAN";
+                backStory = getResources().getString(R.string.superman_story);
             }
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             this.superHeroIconImg.setImageDrawable(getResources().getDrawable(leftSideImage, getContext().getTheme()));
         }
         this.superHeroName.setText(superHeroName);
+        this.backStroy.setText(backStory);
     }
 }

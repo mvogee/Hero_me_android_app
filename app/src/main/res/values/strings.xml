@@ -3,4 +3,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_backstory">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend.</string>
+    <string name="superman_story">Superman is born Kal-El on the alien plannet Krypton. His parrents Jor-el and Lara become aware of Kryptons impending destruction and Jor-El begins constructing a spacecraft that would carry Kal-El to earth. During Kryptons last month Jor-El places young Kal-El in the spacecraft and launches it. Jor-El and Lara die as the spacecraft barely escape Kryptons fate. The explosion transforms planetary debres into Kryptonite, which is a radioactive substance that is lethal to superpowerd Kryptonians.</string>
 </resources>
