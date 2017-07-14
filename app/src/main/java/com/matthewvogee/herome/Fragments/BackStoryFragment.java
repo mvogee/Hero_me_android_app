@@ -89,8 +89,6 @@ public class BackStoryFragment extends Fragment {
         setPrimaryPower();
         setSecondaryPower();
         setSuperHero();
-        secondaryPowerBtn.setEnabled(false);
-
         startOverBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
